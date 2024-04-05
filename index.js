@@ -5,6 +5,7 @@ const cors = require("cors");
 const bodyparser = require("body-parser");
 const userAccountRoutes = require("./routes/user/account/account");
 const userCardRoutes = require("./routes/user/card/card");
+const paymentRoutes = require('./routes/orders/order')
 
 const app = express();
 app.use(cors());
@@ -17,6 +18,7 @@ app.get("/", (req, res, next) => {
 
 app.use("/user", userAccountRoutes);
 app.use("/card", userCardRoutes);
+// app.use('/order',paymentRoutes)
 
 app.use((error, req, res, next) => {
   const statusCode = error.statusCode || 500;
