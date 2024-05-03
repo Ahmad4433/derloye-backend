@@ -5,13 +5,14 @@ const cors = require("cors");
 const bodyparser = require("body-parser");
 const userAccountRoutes = require("./routes/user/account/account");
 const userCardRoutes = require("./routes/user/card/card");
-const paymentRoutes = require('./routes/orders/order')
+const paymentRoutes = require("./routes/orders/order");
+const path = require("path");
 
 const app = express();
 app.use(cors());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
-
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.get("/", (req, res, next) => {
   res.send("server is running");
 });
