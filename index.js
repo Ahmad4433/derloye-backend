@@ -12,7 +12,7 @@ const app = express();
 app.use(cors());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
-app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use("/tmp", express.static(path.join(__dirname, "tmp")));
 app.get("/", (req, res, next) => {
   res.send("server is running");
 });
