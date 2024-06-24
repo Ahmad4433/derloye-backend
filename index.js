@@ -9,7 +9,10 @@ const paymentRoutes = require("./routes/orders/order");
 const path = require("path");
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+  'Access-Control-Allow-Origin':'http://localhost:3000'
+}
+app.use(cors(corsOptions));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use("/tmp", express.static(path.join(__dirname, "tmp")));
