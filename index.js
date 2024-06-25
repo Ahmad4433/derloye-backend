@@ -30,6 +30,8 @@ app.use((error, req, res, next) => {
   res.status(statusCode).json({ message: message, status: false });
 });
 
+
+
 try {
   mongoose
     .connect(process.env.MONGO_URL)
